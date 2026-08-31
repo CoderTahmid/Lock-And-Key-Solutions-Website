@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState(0);
@@ -36,9 +36,6 @@ export default function FaqSection() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider">
-            Clear Answers
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Frequently Asked Questions
           </h2>

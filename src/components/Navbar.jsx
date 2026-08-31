@@ -8,7 +8,6 @@ export default function Navbar({ onOpenConsultation }) {
     { name: 'Services', path: '/services' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'Team', path: '/team' },
-    { name: 'Case Studies', path: '/case-studies' },
     { name: 'FAQ', path: '/faq' },
   ];
 
