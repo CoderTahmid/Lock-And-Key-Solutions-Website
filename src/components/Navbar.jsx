@@ -6,7 +6,7 @@ export default function Navbar({ onOpenConsultation }) {
 
   const navLinks = [
     { name: 'Services', path: '/services' },
-    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'Client Review', path: '/testimonials' },
     { name: 'Team', path: '/team' },
     { name: 'FAQ', path: '/faq' },
   ];
