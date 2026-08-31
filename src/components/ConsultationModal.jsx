@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function ConsultationModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);

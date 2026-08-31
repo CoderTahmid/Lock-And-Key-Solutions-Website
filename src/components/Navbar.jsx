@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Navbar({ onOpenConsultation }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Services', path: '/services' },
-    { name: 'Client Review', path: '/testimonials' },
-    { name: 'Team', path: '/team' },
-    { name: 'FAQ', path: '/faq' },
+    { name: 'Services', targetId: 'services', href: '#services' },
+    { name: 'Client Review', targetId: 'testimonials', href: '#testimonials' },
+    { name: 'Team', targetId: 'process', href: '#process' },
+    { name: 'FAQ', targetId: 'faq', href: '#faq' },
   ];
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const navbarOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    } else {
+      window.location.hash = targetId;
+    }
+  };
+
+  const handleMobileNavClick = (e, targetId) => {
+    setMobileMenuOpen(false);
+    handleNavClick(e, targetId);
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all duration-200">
@@ -28,22 +50,17 @@ export default function Navbar({ onOpenConsultation }) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links (No active routing highlight) */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <NavLink
+              <a
                 key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  `font-medium text-sm transition-colors duration-150 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-200 ${
-                    isActive
-                      ? 'text-blue-600 after:w-full font-semibold'
-                      : 'text-slate-600 hover:text-slate-900 after:w-0 hover:after:w-full'
-                  }`
-                }
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.targetId)}
+                className="font-medium text-sm text-slate-600 hover:text-blue-600 transition-colors duration-150 py-1 cursor-pointer"
               >
                 {link.name}
-              </NavLink>
+              </a>
             ))}
           </nav>
 
@@ -86,18 +103,14 @@ export default function Navbar({ onOpenConsultation }) {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 animate-fadeIn">
           {navLinks.map((link) => (
-            <NavLink
+            <a
               key={link.name}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-3 py-2.5 rounded-md text-base font-medium transition-colors ${
-                  isActive ? 'text-blue-600 bg-blue-50' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
-                }`
-              }
+              href={link.href}
+              onClick={(e) => handleMobileNavClick(e, link.targetId)}
+              className="block px-3 py-2.5 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors cursor-pointer"
             >
               {link.name}
-            </NavLink>
+            </a>
           ))}
           <div className="pt-2">
             <button
