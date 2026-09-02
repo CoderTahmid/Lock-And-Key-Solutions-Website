@@ -70,9 +70,9 @@ export default function Footer({ onOpenConsultation }) {
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/services" className="hover:text-blue-600 transition-colors inline-block">
-                  Services
-                </Link>
+                <a href="#our-services" className="hover:text-blue-600 transition-colors inline-block">
+                  Our Services
+                </a>
               </li>
               <li>
                 <Link to="/blogs" className="hover:text-blue-600 transition-colors inline-block">

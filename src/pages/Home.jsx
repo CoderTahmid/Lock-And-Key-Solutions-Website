@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import ClientLogos from '../components/home/ClientLogos';
+import OurServicesSection from '../components/home/OurServicesSection';
 import ServicesSection from '../components/home/ServicesSection';
 import ProcessSection from '../components/home/ProcessSection';
 import RestrictionChecker from '../components/home/RestrictionChecker';
@@ -18,10 +19,13 @@ export default function Home() {
       {/* 2. Client Brands / Social Proof */}
       <ClientLogos />
 
-      {/* 3. Services & Solutions */}
+      {/* 3. Comprehensive Services Catalog (All 13 Services) */}
+      <OurServicesSection />
+
+      {/* 4. How We Solve Meta & Asset Problems */}
       <ServicesSection />
 
-      {/* 4. 4-Step Legal Unban Process */}
+      {/* 5. 4-Step Legal Unban Process */}
       <ProcessSection />
 
       {/* 5. Interactive Restriction Feasibility Checker Tool */}

@@ -5,7 +5,7 @@ export default function Navbar({ onOpenConsultation }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Services', targetId: 'services', href: '#services' },
+    { name: 'Our Services', targetId: 'our-services', href: '#our-services' },
     { name: 'Client Review', targetId: 'testimonials', href: '#testimonials' },
     { name: 'Team', targetId: 'process', href: '#process' },
     { name: 'FAQ', targetId: 'faq', href: '#faq' },
